@@ -4,7 +4,7 @@ using namespace std;
 
 Engine::Engine()
 {
-	m_Window.create(VideoMode::getDesktopMode);
+	m_Window.create(sf::VideoMode::getDesktopMode);
 }
 
 void Engine::run()
@@ -25,7 +25,19 @@ void Engine::run()
 
 void Engine::input()
 {
+	Event event;
+	while(m_Window.pollEvent(event))
+	{
+		if(event.type == Event::Closed)
+		{
+			m_Window.close();
+		}
+	}
 
+	if(Keyboard::isKeyPressed(Keyboard::Escape))
+	{
+		m_Window.close();
+	}
 }
 
 void Engine::update(float dtAsSeconds)
@@ -38,5 +50,5 @@ void Engine::draw()
 	m_Window.clear();
 
 
-	m_Window.display()
+	m_Window.display();
 }
