@@ -1,5 +1,34 @@
 #include "Particle.h"
 
+Particle::Particle(RenderTarget& target, int numPoints, Vector2i mouseClickPosition) : m_A(2, numPoints)
+{
+	//fix me
+}
+
+void Particle::draw(RenderTarget& target, RenderStates states) const
+{
+	//fix me
+}
+
+void Particle::update(float dt)
+{
+	//fix me
+}
+
+void Particle::translate(double xShift, double yShift)
+{
+	//fix me
+}
+
+void Particle::rotate(double theta)
+{
+	//fix me
+}
+
+void Particle::scale(double c)
+{
+	//fix me
+}
 
 bool Particle::almostEqual(double a, double b, double eps)
 {
@@ -11,8 +40,8 @@ void Particle::unitTests()
     int score = 0;
 
     cout << "Testing RotationMatrix constructor...";
-    double theta = M_PI / 4.0;
-    RotationMatrix r(M_PI / 4);
+    double theta = PI / 4.0;
+    RotationMatrix r(PI / 4);
     if (r.getRows() == 2 && r.getCols() == 2 && almostEqual(r(0, 0), cos(theta))
         && almostEqual(r(0, 1), -sin(theta))
         && almostEqual(r(1, 0), sin(theta))
@@ -60,7 +89,7 @@ void Particle::unitTests()
         cout << "Failed." << endl;
     }
 
-    
+
     cout << "Testing Particles..." << endl;
     cout << "Testing Particle mapping to Cartesian origin..." << endl;
     if (m_centerCoordinate.x != 0 || m_centerCoordinate.y != 0)
@@ -75,7 +104,7 @@ void Particle::unitTests()
 
     cout << "Applying one rotation of 90 degrees about the origin..." << endl;
     Matrix initialCoords = m_A;
-    rotate(M_PI / 2.0);
+    rotate(PI / 2.0);
     bool rotationPassed = true;
     for (int j = 0; j < initialCoords.getCols(); j++)
     {
