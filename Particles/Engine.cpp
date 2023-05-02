@@ -21,6 +21,8 @@ void Engine::run()
 		clock.restart();
 		float time = clock.getElapsedTime().asSeconds();
 	}
+
+	//fix me
 }
 
 void Engine::input()
@@ -38,17 +40,19 @@ void Engine::input()
 	{
 		m_Window.close();
 	}
+
+	//fix me
 }
 
 void Engine::update(float dtAsSeconds)
 {
-
+	//fix me
 }
 
 void Engine::draw()
 {
 	m_Window.clear();
-
+	//fix me
 
 	m_Window.display();
 }
