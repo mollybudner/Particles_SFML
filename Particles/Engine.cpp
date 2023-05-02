@@ -1,14 +1,13 @@
 #include "Engine.h"
 
-using namespace Engine;
 using namespace std;
 
-Engine()
+Engine::Engine()
 {
 	m_Window.create(VideoMode::getDesktopMode);
 }
 
-void run()
+void Engine::run()
 {
 	sf::Clock clock;
 	cout << "Starting Particle unit tests..." << endl;
@@ -21,19 +20,23 @@ void run()
 	{
 		clock.restart();
 		float time = clock.getElapsedTime().asSeconds();
+	}
 }
 
-void input()
+void Engine::input()
 {
 
 }
 
-void update(float dtAsSeconds)
+void Engine::update(float dtAsSeconds)
 {
 
 }
 
-void draw()
+void Engine::draw()
 {
+	m_Window.clear();
 
+
+	m_Window.display()
 }
