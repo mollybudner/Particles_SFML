@@ -4,7 +4,7 @@ using namespace std;
 
 Engine::Engine()
 {
-	m_Window.create(sf::VideoMode::getDesktopMode);
+	m_Window.create(VideoMode::getDesktopMode);
 }
 
 void Engine::run()
@@ -18,11 +18,12 @@ void Engine::run()
 
 	while(m_Window.isOpen())
 	{
-		clock.restart();
-		float time = clock.getElapsedTime().asSeconds();
+		Time dt = clock.restart();
+		float dtAsSeconds = dt.asSeconds();
+		input();
+		update(dtAsSeconds);
+		draw();
 	}
-
-	//fix me
 }
 
 void Engine::input()
@@ -41,7 +42,14 @@ void Engine::input()
 		m_Window.close();
 	}
 
-	//fix me
+	if(Mouse::isButtonPressed(Mouse::Left))
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			//construct particle
+			//fix me
+		}
+	}
 }
 
 void Engine::update(float dtAsSeconds)
@@ -52,7 +60,11 @@ void Engine::update(float dtAsSeconds)
 void Engine::draw()
 {
 	m_Window.clear();
-	//fix me
+
+	for(int i = 0; i < m_particles.size(); i++)
+	{
+		m_Window.draw(m_particles.at(i));
+	}
 
 	m_Window.display();
 }
