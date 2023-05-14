@@ -44,10 +44,12 @@ void Engine::input()
 
 	if(Mouse::isButtonPressed(Mouse::Left))
 	{
+		Vector2i clickPosition;
 		for(int i = 0; i < 5; i++)
 		{
-			//construct particle
-			//fix me
+			int points = rand() % 26 + 25;
+			Particle p(m_Window, points, clickPosition);
+			m_particles.push_back(p);
 		}
 	}
 }
