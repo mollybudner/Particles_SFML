@@ -56,7 +56,18 @@ void Engine::input()
 
 void Engine::update(float dtAsSeconds)
 {
-	//fix me
+	for (auto it = m_particles.begin(); it != m_particles.end();) //iterator based loop, for better accuracy, no increment since it will happen in the loop
+	{
+		if (it->getTTL() > 0.0) //if it's not > 0, the particle will be erased.
+		{
+			it->update(dtAsSeconds); //update the particle
+			++it; //this is where you increment
+		}
+		else
+		{
+			it = m_particles.erase(it); //this is why you don't increment in the loop call, you do not increment if it's 0.
+		}
+	}
 }
 
 void Engine::draw()
